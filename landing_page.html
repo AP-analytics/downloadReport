@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v6.0.0/css/all.css">
+
+
+<!-- TOP OF HOMEPAGE - BANNER -->
+<div class = "hero">
+   <div class = "hero-inner">
+      <h1>Welcome to Newsflare AP Video Hub Download HQ</h1>
+      <h2>Explore how your content is performing</h2>
+      <button class = "hero-button" onclick="$('li:eq(7) a').tab('show');" role="button">About us <i class="fa-solid fa-circle-info"></i></button>
+      <button class = "hero-button" onclick="$('li:eq(8) a').tab('show');" role="button" id = "explore">Explore indicators <i class="fa-solid fa-magnifying-glass"></i></button>
+
+     <!--  {guide_button} Note: This is an R object - see UI/server scripts -->
+
+   </div>
+</div>
+
+
+<!-- MAIN FEATURES -->
+<div class = "grey-container">
+
+   <div class = "container-inner-contents" id = "tab-buttons">
+     <!-- Link to profile summary tab-->
+
+<!-- the number in the eq() indicates which tab to go to -->
+            <a onclick="$('li:eq(1) a').tab('show');" role="button" class = "featured-item">
+               <div class="features-text-section">
+                  <div class="icon-box">
+                     <i class="fa fa-list-ul fa-3x"></i>
+                  </div>
+                  <h3>Overall Summary</h3>
+                  <p>Gain a high level understanding of market reach.</p>
+               </div>
+            </a>
+
+      <!-- Link to trend tab-->
+
+            <a onclick="$('li:eq(2) a').tab('show');" role="button" class = "featured-item">
+               <div class="features-text-section">
+                  <div class="icon-box">
+                     <i class="fa fa-line-chart fa-3x"></i>
+                  </div>
+                  <h3>Trend</h3>
+                  <p>See how download rates change over time.</p>
+               </div>
+            </a>
+
+
+      <!-- Link to inequalities tab-->
+            <a onclick="$('li:eq(4) a').tab('show');" role="button" class = "featured-item">
+               <div class="features-text-section">
+                  <div class="icon-box">
+                     <i class="fa-solid fa-download fa-3x"></i>
+                  </div>
+                  <h3>Download Breakdown</h3>
+                  <p>Explore relationships between download characteristics.</p>
+               </div>
+            </a>
+
+        <!-- Link to rank tab-->
+            <a onclick="$('li:eq(7) a').tab('show');" role="button" class = "featured-item">
+               <div class="features-text-section">
+                  <div class="icon-box">
+                     <i class="fa fa-signal fa-3x"></i>
+                  </div>
+                  <h3>Top Stories</h3>
+                  <p>View the best performing videos with the most downloads.</p>
+               </div>
+            </a>
+
+      <!-- Link to data table tab-->
+            <a onclick="$('li:eq(6) a').tab('show');" role="button" class = "featured-item">
+               <div class="features-text-section">
+                  <div class="icon-box">
+                     <i class="fa-solid fa-table fa-3x"></i>
+                  </div>
+                  <h3>Data</h3>
+                  <p>View and download the data behind the tool.</p>
+               </div>
+            </a>
+      </div>
+   </div>
+
+
+<!-- WHATS NEW/INDICATOR UPDATES
+<div class = "grey-container">
+   <div class = "container-inner-contents">
+      <div class = "white-box" id = "ind-updates-section">
+         <h3>Report updates</h3>
+         <hr>
+         <div class = white-box-inner>
+           <div>
+            <h4>Updates schedule</h4>
+            <p>Click below to find out when your report is due to be updated.</p>
+            <button class = "button" onclick="$('li:eq(8) a').tab('show');" role="button">View updates schedule</button>
+            <hr>
+            </div>
+            <div>
+            <h4>Recent updates</h4>
+            <p> Click below to read about new updates/features. </p>
+            {{ latest_updates_button }} ADD COMMENT HERE: Note: This is an R object - see UI/server scripts
+         </div>
+         <hr>
+         <div>
+            <h4>Feedback</h4>
+            <p>If you have any feedback about this tool please <a href="mailto:hfuchs@ap.org" target="_blank">contact us</a>.
+            </p>
+         </div>
+         </div>
+      </div>
+
+      <div class = "white-box" id = "whats-new-section">
+         <h3>What's New</h3>
+         <hr>
+         <div class = "white-box-inner">
+            <h4>Heading for update</h4>
+           <!--- <p>ScotPHO will be working with Scottish Government and other colleagues on future development of the
+            <a href="https://scotland.shinyapps.io/phs-care-and-wellbeing-dashboard/">Care and Wellbeing Portfolio Dashboard</a>
+            to assist with their ambition of providing data and intelligence to improve population health, address health inequalities and improve the health and care system.</p>
+            <hr>
+            <h4>Profile summary design</h4>
+            <p>Our <a onclick="$('li:eq(1) a').tab('show');" style="cursor: pointer;">‘Profiles Summary’ page</a> has been re-designed bringing back the spine chart style visualisations.
+            </p>
+            <hr>
+            <h4>Inequalities indicators</h4>
+            <p>We have expanded the range of indicators available within the ‘Inequalities’ page, these now include indicators where an increasing value indicates a more favourable outcome such as life expectancy.
+            </p>
+         </div>
+      </div>
+   </div>
+</div>-->
+
+
+
+<!-- BOTTOM SECTION: ADDITIONAL LINKS -->
+<div class = "bottom-links-container">
+  <!-- links to other profiling products
+   <div class = "container-inner-contents" id = "further-links-section">
+
+      <div class = "links-item">
+         <h3>Other Profiles</h3>
+         <a href="https://www.ap.org" target="_blank">Associated Press Website</a>
+         <a href="http://www.understandingglasgow.com/" target="_blank">The Glagow Indicators Project</a>
+         <a href="https://www.environment.gov.scot/" target="_blank">Scotlands Environment Web</a>
+         <a href="https://statistics.gov.scot/home" target="_blank">Statistics.gov.scot</a>
+         <a href="https://www.nrscotland.gov.uk/statistics-and-data/statistics/stats-at-a-glance/council-area-profiles" target="_blank">NRS Council Area Profiles</a>
+         <a href="https://scotland.shinyapps.io/is-community-planning-outcomes-profile/" target="_blank">IS Community Planning Outcomes Profiles</a>
+      </div>-->
+      <!-- links to scotpho github repositories and geography/population lookups -->
+      <div class = "links-item">
+         <h4>Additional Links</h4>
+         <a href="https://apvideohub.ap.org" target = "_blank">AP Video Hub</a>
+         <a href="https://newsroom.ap.org" target="_blank">AP Newsroom</a>
+      </div>
+
+
+
+   <hr>
+   <div class = "bottom-links" >
+     <!-- links to website/cookies statement/Open Gov Licence -->
+      <p style = "color:black"> The Associated Press
+      </p>
+      <a href="https://www.ap.org" target="_blank">Visit our website</a>
+   </div>
+   </div>

@@ -1,0 +1,42 @@
+Package: downloadReport
+Title: AP Partner Content Download Dashboard
+Version: 0.0.0.9000
+Authors@R: 
+    person("Hannah", "Fuchs", , "hfuchs@ap.org", role = c("cre", "aut"))
+Description: A application for partners to view Download Reports and
+    interact with them. Analysis includes trends, maps, and descriptive
+    statistics on downloads and uploads.
+License: MIT + file LICENSE
+URL: https://github.com/AP-analytics/downloadReport
+BugReports: https://github.com/AP-analytics/downloadReport/issues
+Imports: 
+    config (>= 0.3.2),
+    DBI,
+    dbplyr,
+    dplyr,
+    golem (>= 0.4.1),
+    gt,
+    lubridate,
+    odbc,
+    pkgload,
+    plotly,
+    reticulate,
+    shiny (>= 1.8.1.1),
+    shinyBS,
+    shinycssloaders,
+    shinyWidgets,
+    stringr,
+    tidyr,
+    timetk
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10),
+    tidyverse
