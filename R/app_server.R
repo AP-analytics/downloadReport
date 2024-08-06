@@ -40,4 +40,15 @@ app_server <- function(input, output, session,
     mod_map_server("map_1", data = get_data[[1]])
     mod_top_stories_server("top_stories_1", data = get_data[[1]])
     mod_dl_data_server("dl_data_1", data = get_data[[1]])
+
+
+
+    # Keeps the shiny app from timing out quickly
+    autoInvalidate <- reactiveTimer(10000)
+    observe({
+      autoInvalidate()
+      cat(".")
+    })
+
+}
 }
