@@ -49,7 +49,7 @@ mod_map_server <- function(id, data){
       if(input$time_frame == "Past Year"){
         reac$map_pal <- "YlGnBu"
 
-        if(all(data$sources == "stormchasingvideo.com")){
+        if(all(data$partner_id == "strm")){
           reac$bin_nums <- c(1, 15, 30, 45, Inf)
         } else {
           reac$bin_nums <- c(1, 10, 50, 100, 500, 1000, Inf)
