@@ -40,6 +40,7 @@ golem::add_shinyappsio_file()
 # Deploy to Posit Connect or ShinyApps.io
 # In command line.
 rsconnect::deployApp(
+  appMode = "shiny",
   appName = desc::desc_get_field("Package"),
   appTitle = desc::desc_get_field("Package"),
   appFiles = c(
