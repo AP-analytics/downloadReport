@@ -28,8 +28,8 @@ nflr_05_2024 <- tbl(con, "vw_VideoHubDownloads") %>%
 
 # to collect you can only grab 20 vars at a time, so bind them together
 nflr_05_2024 <- cbind(
-  nflr_05_2024 %>% select(1:20) %>% collect(),
-  nflr_05_2024 %>% select(21:last_col()) %>% collect()
+  nflr_05_2024 %>% select(1:20) %>%  dplyr::collect(),
+  nflr_05_2024 %>% select(21:last_col()) %>%  dplyr::collect()
 )
 
 uploads_nflr_05_2024 <- tbl(con, "vw_VideoHubContent") %>%
@@ -39,7 +39,7 @@ uploads_nflr_05_2024 <- tbl(con, "vw_VideoHubContent") %>%
            sql(paste0("ArrivalDateTime between dateadd(year, -2, '",
                       params$last_date, "') and '", params$last_date, "'"))) %>%
   select(arrival_date_time) %>%
-  collect()
+   dplyr::collect()
 
 uploads_nflr_05_2024 <- uploads_nflr_05_2024 %>%
   mutate(arrival_date_time = make_date(year(arrival_date_time), month(arrival_date_time),

@@ -803,14 +803,14 @@
     },
     "downloadReport": {
       "Package": "downloadReport",
-      "Version": "0.0.0.9000",
+      "Version": "0.0.0.9001",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "downloadReport",
       "RemoteUsername": "AP-analytics",
       "RemoteRef": "stormchasingvideo",
-      "RemoteSha": "cef06009afa2f3798d3a4719c9a5ff679d5e25ab",
+      "RemoteSha": "765109a13ea505ab155410c50856d257159dfa21",
       "Requirements": [
         "DBI",
         "R",
@@ -833,7 +833,7 @@
         "tidyverse",
         "timetk"
       ],
-      "Hash": "24b28d7cda6c38e2c310bc31b7c0b7ef"
+      "Hash": "809bd404e1d765954dbae10b7882375f"
     },
     "dplyr": {
       "Package": "dplyr",

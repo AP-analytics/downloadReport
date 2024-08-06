@@ -58,7 +58,7 @@ attr(small_region, 'sf_column') <- 'geometry'
 #   filter(download_date >= as_date(Sys.Date()) - 6*365.25)%>%
 #   count(sales_country, sales_region) %>%
 #   select(-n)%>%
-#   collect()
+#    dplyr::collect()
 
 
 

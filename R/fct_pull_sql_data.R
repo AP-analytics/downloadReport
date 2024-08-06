@@ -32,7 +32,7 @@ pull_sql_data <- function(source, eAP_product_id, product_num,
              geo, sales_region, news_categories,
              asset_action_id, sources,
              partner_id) %>%
-      collect() %>%
+       dplyr::collect() %>%
       mutate(sources = stringr::str_to_lower(stringr::str_trim(sources)),
              download_date = as.Date(download_date))
 
@@ -44,7 +44,7 @@ pull_sql_data <- function(source, eAP_product_id, product_num,
                         word(eAP_product_id, 2), ",%') and sources like '%", source, "%'")) & sql(paste0("ArrivalDateTime between dateadd(year, -2, '",
                                                                                                                        last_date, "') and '", last_date, "'"))) %>%
       select(arrival_date_time) %>%
-      collect()%>%
+       dplyr::collect()%>%
       mutate(arrival_date_time = make_date(year(arrival_date_time), month(arrival_date_time),
                                            day(arrival_date_time))) %>%
       mutate(weekday = as.character(wday(arrival_date_time, label = T)),
