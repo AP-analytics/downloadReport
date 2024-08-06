@@ -810,7 +810,7 @@
       "RemoteRepo": "downloadReport",
       "RemoteUsername": "AP-analytics",
       "RemoteRef": "stormchasingvideo",
-      "RemoteSha": "518a799b137cf3747186deb3deb359d33ceacf26",
+      "RemoteSha": "cef06009afa2f3798d3a4719c9a5ff679d5e25ab",
       "Requirements": [
         "DBI",
         "R",
@@ -833,7 +833,7 @@
         "tidyverse",
         "timetk"
       ],
-      "Hash": "a7dd8d4f097c7ac0ebb5599340527a55"
+      "Hash": "24b28d7cda6c38e2c310bc31b7c0b7ef"
     },
     "dplyr": {
       "Package": "dplyr",
