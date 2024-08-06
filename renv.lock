@@ -809,8 +809,8 @@
       "RemoteHost": "api.github.com",
       "RemoteRepo": "downloadReport",
       "RemoteUsername": "AP-analytics",
-      "RemoteRef": "stormchasingvideo",
-      "RemoteSha": "765109a13ea505ab155410c50856d257159dfa21",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "66180faf972e85c4f836c4cc591626c1f74ad92b",
       "Requirements": [
         "DBI",
         "R",
@@ -833,7 +833,7 @@
         "tidyverse",
         "timetk"
       ],
-      "Hash": "809bd404e1d765954dbae10b7882375f"
+      "Hash": "b1c59fb794b59b4616f6914dc05826af"
     },
     "dplyr": {
       "Package": "dplyr",
