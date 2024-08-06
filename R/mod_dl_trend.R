@@ -87,7 +87,7 @@ mod_dl_trend_server <- function(id, data){
 
       data %>%
         select(slug, download_date)%>%
-        filter(download_date >= as.Date(max(download_date, na.rm = T)) - 365.25*time()) %>%
+        filter(download_date >= as.Date(Sys.Date()) - 365.25*time()) %>%
         timetk::tk_augment_timeseries_signature() %>%
         suppressMessages()%>%
         mutate(download_date = as.Date(download_date)) })
@@ -124,8 +124,8 @@ mod_dl_trend_server <- function(id, data){
 
     output$trend_plot <- plotly::renderPlotly({create_plot() %>%
         layout(title = HTML(paste0("Trend in 30-day rolling average of downloads<br><sup> From ",
-                                   as.Date(max(trend_data()$download_date)) - time(), " to ",
-          as.Date(max(trend_data()$download_date)), "</sup>")),
+                                   as.Date(Sys.Date()) - time(), " to ",
+          as.Date(Sys.Date()), "</sup>")),
                xaxis = list(           # layout's xaxis is a named list. List of valid keys: /r/reference/#layout-xaxis
                  title = "Time",      # xaxis's title: /r/reference/#layout-xaxis-title
                  showgrid = F # removes vertical grid lines

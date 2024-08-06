@@ -91,7 +91,7 @@ mod_sunburst_server <- function(id, data){
     sun_data <- reactive({
 
       data %>%
-        filter(download_date >= as.Date(max(download_date, na.rm = T)) -
+        filter(download_date >= as.Date(Sys.Date()) -
                  365.25*time())%>%
         dplyr::mutate(content = case_when(
           # will need to double check that this logic works but for now
