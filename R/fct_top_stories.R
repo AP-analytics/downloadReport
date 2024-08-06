@@ -15,13 +15,13 @@ top_stories <- function(data, interval = c("year", "month", "week"), include_slu
 
   if(include_slug){
     top_ytd_cap <- data %>%
-      filter(download_date >= as_date(max(.data$download_date)) - num_days)%>%
+      filter(download_date >= as_date(Sys.Date()) - num_days)%>%
       select(slug, headline)%>%
       count(slug, headline)%>%
       arrange(desc(n))
   } else {
     top_ytd_cap <- data %>%
-      filter(download_date >= as_date(max(.data$download_date)) - num_days)%>%
+      filter(download_date >= as_date(Sys.Date()) - num_days)%>%
       select(headline)%>%
       count(headline)%>%
       arrange(desc(n))

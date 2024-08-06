@@ -804,13 +804,36 @@
     "downloadReport": {
       "Package": "downloadReport",
       "Version": "0.0.0.9000",
-      "Source": "Cellar",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "AP-analytics",
+      "RemoteRepo": "downloadReport",
+      "RemoteRef": "stormchasingvideo",
+      "RemoteSha": "8ec531be7265afd1951b8d972470c757d1b69be3",
       "Requirements": [
+        "DBI",
+        "R",
         "config",
+        "dbplyr",
+        "dplyr",
         "golem",
-        "shiny"
+        "gt",
+        "lubridate",
+        "odbc",
+        "pkgload",
+        "plotly",
+        "reticulate",
+        "shiny",
+        "shinyBS",
+        "shinyWidgets",
+        "shinycssloaders",
+        "stringr",
+        "tidyr",
+        "tidyverse",
+        "timetk"
       ],
-      "Hash": "cf7ec90f2635408445e0b2f5b23f88e3"
+      "Hash": "33c1b279832436fd1f4d01c2541b4fca"
     },
     "dplyr": {
       "Package": "dplyr",
@@ -2830,7 +2853,7 @@
     },
     "shiny": {
       "Package": "shiny",
-      "Version": "1.9.0",
+      "Version": "1.9.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2859,7 +2882,7 @@
         "withr",
         "xtable"
       ],
-      "Hash": "01666113b04d504390d60736f39bd0d0"
+      "Hash": "6a293995a66e12c48d13aa1f957d09c7"
     },
     "shinyBS": {
       "Package": "shinyBS",

@@ -23,27 +23,24 @@ mod_upload_ratio_ui <- function(id){
 #' upload_ratio Server Functions
 #'
 #' @noRd
-mod_upload_ratio_server <- function(id, data){
+mod_upload_ratio_server <- function(id, tbl_d, tbl_u){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
-    data2 <- data %>%
+    tbl_d2 <- tbl_d %>%
       # Brad wants a darker section for the weekend to make it
       # easier to see what is going on with the 30 day trend
-      filter(download_date >= as_date(max(download_date)) - 30*3)%>%
+      filter(download_date >= as_date(Sys.Date()) - 30*3)%>%
       timetk::tk_augment_timeseries_signature()%>%
       # removes the sec, min, hr part of the date that was messing up aggregate #s
-      mutate(download_date = as.Date(download_date))%>%
-      group_by(download_date, wday.lbl)%>%
-      reframe(n = n())%>%
-      ungroup()%>%
+      count(download_date, wday.lbl)%>%
       mutate(type = case_when(
                startsWith(as.character(wday.lbl), "S") ~ "Weekend",
                TRUE ~ "Work Day"
              )) %>%
       suppressMessages()
 
-    if (all(data2$type == 'Work Day')){
+    if (all(tbl_d2$type == 'Work Day')){
       cols <- rev(c("#F8766D", '#00BFC4'))
     } else {
       cols <- c("#F8766D", '#00BFC4')
@@ -53,7 +50,7 @@ mod_upload_ratio_server <- function(id, data){
     output$dl_ul_bar <- plotly::renderPlotly({
 
       fig1 <- plotly::plot_ly(
-        data = data2,
+        data = tbl_d2,
         x = ~download_date,
         y = ~n,
         color  = ~type,
@@ -62,11 +59,10 @@ mod_upload_ratio_server <- function(id, data){
       )
 
       fig2 <- plotly::plot_ly(
-        data = uploads_nflr_05_2024%>%
-          filter(arrival_date_time >= as_date(max(data2$download_date)) - 90)%>%
+        data = tbl_u%>%
+          filter(arrival_date_time >= as_date(max(tbl_d2$download_date)) - 90)%>%
           mutate(download_date = as.Date(arrival_date_time))%>%
-          group_by(arrival_date_time)%>%
-          reframe(n = n())%>%
+          count(arrival_date_time)%>%
           ungroup(),
         x = ~arrival_date_time,
         y = ~n,
@@ -92,8 +88,8 @@ mod_upload_ratio_server <- function(id, data){
         config(modeBarButtons = list(list("toImage")), displaylogo = F)
 
         })
-    # p2 <- ggplot(data = uploads) +
-    #   geom_bar(data = uploads, mapping = aes(x = arrival_date_time))+
+    # p2 <- ggplot(tbl_d = uploads) +
+    #   geom_bar(tbl_d = uploads, mapping = aes(x = arrival_date_time))+
     #   theme_classic()+
     #   xlab("Upload Date")+
     #   ylab("# Uploads")+

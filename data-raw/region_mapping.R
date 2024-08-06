@@ -55,7 +55,7 @@ attr(small_region, 'sf_column') <- 'geometry'
 #
 # region_mapping <- tbl(con, "vw_VideoHubDownloads") %>%
 #   janitor::clean_names()%>%
-#   filter(download_date >= max(download_date) - 6*365.25)%>%
+#   filter(download_date >= as_date(Sys.Date()) - 6*365.25)%>%
 #   count(sales_country, sales_region) %>%
 #   select(-n)%>%
 #   collect()

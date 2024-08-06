@@ -70,7 +70,7 @@ mod_summary_server <- function(id, data){
       data %>%
         select(download_date, asset_action_id,
                user_name, story_number, company_type, organisation_name, sales_region, geo)%>%
-        filter(download_date > as.Date(max(download_date)) - time())%>%
+        filter(download_date > as.Date(Sys.Date()) - time())%>%
         group_by(asset_action_id)%>%
         summarise(across(everything(), ~unique(.) %>% length()),
                   Downloads = n()) %>%
@@ -81,7 +81,7 @@ mod_summary_server <- function(id, data){
                     values_from = 'value')%>%
         left_join(
           data %>%
-            filter(download_date > as.Date(max(download_date)) - time())%>%
+            filter(download_date > as.Date(Sys.Date()) - time())%>%
             select(user_name, story_number, company_type, organisation_name, sales_region, geo) %>%
             summarise(across(everything(), ~unique(.) %>% length()),
                       Downloads = n()) %>%

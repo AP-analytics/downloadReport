@@ -87,7 +87,7 @@ mod_dl_trend_server <- function(id, data){
 
       data %>%
         select(slug, download_date)%>%
-        filter(download_date >= as.Date(max(download_date, na.rm = T)) - 365.25*time()) %>%
+        filter(download_date >= as.Date(Sys.Date()) - 365.25*time()) %>%
         timetk::tk_augment_timeseries_signature() %>%
         suppressMessages()%>%
         mutate(download_date = as.Date(download_date)) })

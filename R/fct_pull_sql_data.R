@@ -30,8 +30,11 @@ pull_sql_data <- function(source, eAP_product_id, product_num,
              company_type, sales_country,
              download_date, headline, user_name,
              geo, sales_region, news_categories,
-             asset_action_id) %>%
-      collect()
+             asset_action_id, sources,
+             partner_id) %>%
+      collect() %>%
+      mutate(sources = stringr::str_to_lower(stringr::str_trim(sources)),
+             download_date = as.Date(download_date))
 
   } else if (type == "uploads"){
 
