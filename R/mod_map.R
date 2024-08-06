@@ -72,7 +72,7 @@ mod_map_server <- function(id, data){
 
 
     dl_data <- reactive({data %>%
-      filter(download_date >= as.Date(max(data$download_date)) - reac$days)%>%
+      filter(download_date >= as.Date(Sys.Date()) - reac$days)%>%
       count(sales_country)})
 
     df <- reactive({downloadReport::large_countries %>%
@@ -80,8 +80,8 @@ mod_map_server <- function(id, data){
       sf::st_sf()})
 
     output$title_map <- renderText({paste0("From ",
-                                       as.Date(max(data$download_date)) - reac$days, " to ",
-                                       as.Date(max(data$download_date)))})
+                                       as.Date(Sys.Date()) - reac$days, " to ",
+                                       as.Date(Sys.Date()))})
 
 
     output$download_map <- leaflet::renderLeaflet({

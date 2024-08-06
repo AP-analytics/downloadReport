@@ -61,8 +61,8 @@ mod_summary_server <- function(id, data){
                    "one week" = 7)})
 
     title <- reactive({
-      list(as.Date(max(data$download_date)) - time(),
-           as.Date(max(data$download_date)))
+      list(as.Date(Sys.Date()) - time(),
+           as.Date(Sys.Date()))
 
     })
 
