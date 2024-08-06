@@ -124,8 +124,8 @@ mod_dl_trend_server <- function(id, data){
 
     output$trend_plot <- plotly::renderPlotly({create_plot() %>%
         layout(title = HTML(paste0("Trend in 30-day rolling average of downloads<br><sup> From ",
-                                   as.Date(max(trend_data()$download_date)) - time(), " to ",
-          as.Date(max(trend_data()$download_date)), "</sup>")),
+                                   as.Date(Sys.Date()) - time(), " to ",
+          as.Date(Sys.Date()), "</sup>")),
                xaxis = list(           # layout's xaxis is a named list. List of valid keys: /r/reference/#layout-xaxis
                  title = "Time",      # xaxis's title: /r/reference/#layout-xaxis-title
                  showgrid = F # removes vertical grid lines

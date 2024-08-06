@@ -16,7 +16,7 @@ app_server <- function(input, output, session) {
   library(DBI)
   library(dbplyr)
   # this source is abbreviated because I'm using the like operator
-    get_data <- map(c("downloads", "uploads"), ~pull_sql_data(source = 'stormch',
+    get_data <- purrr::map(c("downloads", "uploads"), ~pull_sql_data(source = 'stormch',
                                               eAP_product_id = '45883',
                                               last_date = Sys.Date(),
                                               product_num = '100879',
