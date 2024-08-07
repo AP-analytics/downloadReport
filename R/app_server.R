@@ -22,6 +22,7 @@ app_server <- function(input, output, session,
   library(DBI)
   library(dbplyr)
 
+
   # get both download and upload data as needed
     # get_data <- map(c("downloads", "uploads"), ~pull_sql_data(source = golem::get_golem_options("scr"),
     #                                           eAP_product_id = golem::get_golem_options(which = "eAP"),
@@ -35,6 +36,7 @@ app_server <- function(input, output, session,
 
     # order doesn't matter, this just sources the server functions
     # for the other modules
+
     mod_sunburst_server("sunburst_1", data = get_data[[1]])
     mod_homePage_server("homePage_1")
     mod_upload_ratio_server("upload_ratio_1", tbl_d = get_data[[1]], tbl_u = get_data[[2]])

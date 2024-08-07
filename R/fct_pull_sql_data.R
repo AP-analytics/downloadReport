@@ -19,8 +19,7 @@ pull_sql_data <- function(source, eAP_product_id, product_num,
                    timeout = 10)
 
     if (type == "downloads"){
-
-      save <- tbl(con, "vw_VideoHubDownloads") %>%
+      tbl(con, "vw_VideoHubDownloads") %>%
         janitor::clean_names()  %>%
         filter(sql(paste0("eAP_ProductID in (", paste0(eAP_product_id, collapse = ", "), ") or productNumber in (",
                           product_num, ")")))%>%

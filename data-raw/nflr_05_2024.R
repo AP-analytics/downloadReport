@@ -27,11 +27,13 @@ nflr_data <- tbl(con, "vw_VideoHubDownloads") %>%
   filter(is_duplicate != TRUE & asset_action_id != 11 & !download_status %in% c("Voided", "Failed"))
 
 # to collect you can only grab 20 vars at a time, so bind them together
+
 nflr_data <- cbind(
   nflr_data %>% select(1:20) %>% collect(),
   nflr_data %>% select(21:last_col()) %>% collect()
 ) %>%
   mutate(download_date = as.Date(download_date))
+
 
 uploads_nflr_data <- tbl(con, "vw_VideoHubContent") %>%
   janitor::clean_names()%>%
@@ -41,7 +43,7 @@ uploads_nflr_data <- tbl(con, "vw_VideoHubContent") %>%
                       params$last_date, "') and '", params$last_date, "'"))) %>%
   mutate(arrival_date_time = as.Date(arrival_date_time))%>%
   select(arrival_date_time) %>%
-  collect()
+   dplyr::collect()
 
 uploads_nflr_data <- uploads_nflr_data %>%
   mutate(arrival_date_time = make_date(year(arrival_date_time), month(arrival_date_time),
