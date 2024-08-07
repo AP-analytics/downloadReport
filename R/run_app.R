@@ -12,10 +12,10 @@ run_app <- function(
   options = list(),
   enableBookmarking = NULL,
   uiPattern = "/",
-  scr,
-  title,
-  eAP,
-  prod_num
+  scr = 'newsflare',
+  title = NULL,
+  eAP = NULL,
+  prod_num = NULL
 ) {
   with_golem_options(
     app = shinyApp(

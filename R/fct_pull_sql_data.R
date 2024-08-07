@@ -60,9 +60,9 @@ pull_sql_data <- function(source, eAP_product_id, product_num,
   } else {
 
     if (type == 'downloads'){
-      nflr_05_2024
+      nflr_data
     } else {
-      uploads_nflr_05_2024
+      uploads_nflr_data
     }
 
   }
