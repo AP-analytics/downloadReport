@@ -12,17 +12,28 @@ run_app <- function(
   options = list(),
   enableBookmarking = NULL,
   uiPattern = "/",
-  ...
+  scr = 'newsflare',
+  title = NULL,
+  eAP = NULL,
+  prod_num = NULL
 ) {
   with_golem_options(
     app = shinyApp(
       ui = app_ui,
       server = app_server,
-      onStart = onStart,
-      options = options,
       enableBookmarking = enableBookmarking,
       uiPattern = uiPattern
     ),
-    golem_opts = list(...)
+    golem_opts = list(
+      scr = scr,
+      title = title,
+      prod_num = prod_num,
+      eAP = eAP
+    ),
+    maintenance_page = tagList(
+      fluidRow(
+        h1("Under maintenance")
+      )
+    )
   )
 }

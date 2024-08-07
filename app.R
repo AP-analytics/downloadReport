@@ -4,4 +4,4 @@
 
 pkgload::load_all(export_all = FALSE,helpers = FALSE,attach_testthat = FALSE)
 options( "golem.app.prod" = TRUE)
-downloadReport::run_app() # add parameters here (if any)
+downloadReport::run_app(scr = 'newsflare') # add parameters here (if any)
